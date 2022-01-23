@@ -4,6 +4,8 @@ import os
 from models.vgg16 import vgg16ModelHandler
 from exceptionHandler import raiseException
 
+import configparser
+
 def loadPredictionModel(args, logger):
     selected_model = args.model
     number_of_classes = 11
@@ -24,6 +26,14 @@ def loadPredictionModel(args, logger):
     except Exception as e:
         logger.exception("Unable to load Model Weights")
         raise raiseException("Unable to load Model Weights")
+    return model
 
 
-    return None
+def getModelPrediction(temple_prediction_model, processed_image_tensor_list,logger):
+    output_prediction = []
+    for processed_image_tensor in processed_image_tensor_list:
+        predicted_class = temple_prediction_model.predictModel(processed_image_tensor.processed_image)
+        output_prediction.append({"ImagePath":processed_image_tensor.input_image_path,"Prediction":predicted_class})
+    return output_prediction
+
+

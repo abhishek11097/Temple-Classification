@@ -1,8 +1,15 @@
 import torch
 from torchvision import models
 import torch.nn as nn
+import os
 
-CLASS_LABEL_LIST = []
+import configparser
+
+config = configparser.RawConfigParser()
+config.read(os.path.join(os.getcwd(),"../config/config.property"))
+
+LABELS = dict(config.items("LABELS"))
+CLASS_LABEL_LIST = LABELS["labels"].split(",")
 
 class vgg16ModelHandler:
     def __init__(self, pretrained_weight_path, number_of_classes, device, logger):
@@ -26,15 +33,11 @@ class vgg16ModelHandler:
     def getClassName(self, predicted_label):
         return CLASS_LABEL_LIST[predicted_label]
 
-    def getModelPrediction(self, dataloader):
+    def predictModel(self, processed_image):
         self.model.eval()
-        output_prediction = []
         with torch.no_grad():
-            for i, (inputs, labels) in enumerate(dataloader):
-                inputs = inputs.to(self.device)
-                outputs = self.model(inputs)
-                _, predicted_labels = torch.max(outputs, 1)
-
-                predicted_class = [self.getClassName(predicted_label) for predicted_label in predicted_labels]
-                output_prediction += predicted_class
-        return output_prediction
+            processed_image = processed_image.to(self.device)
+            output_prediction = self.model(processed_image)
+            _, predicted_label = torch.max(output_prediction, 1)
+            predicted_class = self.getClassName(predicted_label[0])
+        return predicted_class
