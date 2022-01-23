@@ -19,7 +19,7 @@ def loadPredictionModel(args, logger):
 
     else:
         logger.exception("Invalid Model Choice")
-        raise raiseException(logger)
+        raise raiseException("Invalid Model Choice "+args.model+" is not allowed")
 
     try:
         model.loadModelWeights()

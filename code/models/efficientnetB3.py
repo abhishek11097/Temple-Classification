@@ -11,20 +11,20 @@ config.read(os.path.join(os.getcwd(),"config/config.property"))
 LABELS = dict(config.items("LABELS"))
 CLASS_LABEL_LIST = LABELS["labels"].split(",")
 
-class vgg16ModelHandler:
+class efficientNetB3ModelHandler:
     def __init__(self, pretrained_weight_path, number_of_classes, device, logger):
         self.number_of_classes = number_of_classes
         self.device = device
         self.pretrained_weight_path = pretrained_weight_path
         self.logger = logger
         self.logger.info("Creating Model")
-        self.model = models.vgg16()
+        self.model = models.efficientnet_b3()
         self.logger.info("Model Created Successfully")
 
     def loadModelWeights(self):
         self.logger.info("Loading Model Weights from file " + self.pretrained_weight_path)
-        num_ftrs = self.model.classifier[6].in_features
-        self.model.classifier[6] = nn.Linear(num_ftrs, 11)
+        num_ftrs = model.classifier[1].in_features
+        self.model.classifier[1] = nn.Linear(num_ftrs,11)
         model_path = torch.load(self.pretrained_weight_path,map_location=torch.device(self.device))
         self.model.load_state_dict(model_path)
         self.logger.info("Successfully Loaded Model")
