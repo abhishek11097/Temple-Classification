@@ -60,5 +60,5 @@ The following augmentation techniques were applied:
 |Model|Accuracy|Weights|
 |----|----|----|
 |EfficientNet B3|84.61|[effb3weights](https://drive.google.com/file/d/12rduB0SrQSS3QgVoPfuKmhANwjXsxNF1/view?usp=sharing)|
-|EfficientNet B0|81.24|[effb0weights](targetURL)|
-|VGG16|79.84|[vggweights](targetURL)|
+|EfficientNet B0|81.24|[effb0weights](https://drive.google.com/file/d/1KaN8nNyp5RJiy2LDZIoP0Q_sgMjSPODC/view?usp=sharing)|
+|VGG16|79.84|[vggweights](https://drive.google.com/file/d/1I-PIIunZenf_jo-u3Nhwk6v24nk1ZX-A/view?usp=sharing)|
