@@ -34,7 +34,7 @@ The repository contains the prediction code for a classifier that could guess wh
 ### Data Augmentation
 
 <p align="center">
-  <img src="temp/data_aug.png">
+  <img src="data_aug.png">
 </p>
 
 
