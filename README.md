@@ -3,7 +3,7 @@ The repository contains the prediction code for a classifier that could guess wh
 The solution has option of three pretrained models: Efficient Net B3, Efficient B0, VGG16. Efficient Net B3 is the default model since it gives the highest accuracy.
 
 ## Setup
-### Prerequisites
+### Requirements
 |library|version|
 |----|----|
 |numpy|1.22.1|
