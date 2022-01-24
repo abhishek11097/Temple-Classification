@@ -13,6 +13,11 @@ CLASS_LABEL_LIST = LABELS["labels"].split(",")
 
 class efficientNetB3ModelHandler:
     def __init__(self, pretrained_weight_path, number_of_classes, device, logger):
+        """ 
+            Purpose: Creates object for Model Class
+            Input: Pretrained weight of the model, Number of classes, Device for prediction 
+            Output: Object for Model class
+        """
         self.number_of_classes = number_of_classes
         self.device = device
         self.pretrained_weight_path = pretrained_weight_path
@@ -22,8 +27,13 @@ class efficientNetB3ModelHandler:
         self.logger.info("Model Created Successfully")
 
     def loadModelWeights(self):
+        """ 
+            Purpose: Transforms the final layer of the model and loads the pretrained weights
+            Input: None
+            Output: None
+        """
         self.logger.info("Loading Model Weights from file " + self.pretrained_weight_path)
-        num_ftrs = model.classifier[1].in_features
+        num_ftrs = self.model.classifier[1].in_features
         self.model.classifier[1] = nn.Linear(num_ftrs,11)
         model_path = torch.load(self.pretrained_weight_path,map_location=torch.device(self.device))
         self.model.load_state_dict(model_path)
@@ -31,9 +41,19 @@ class efficientNetB3ModelHandler:
 
 
     def getClassName(self, predicted_label):
+        """ 
+            Purpose: Gives the class from the predicted index
+            Input: Predicted Label
+            Output: Predicted Class
+        """
         return CLASS_LABEL_LIST[predicted_label]
 
     def predictModel(self, processed_image):
+        """ 
+            Purpose: Predicts the result for a image tensor
+            Input: Image tensor
+            Output: Class predicted for the image
+        """
         self.model.eval()
         with torch.no_grad():
             processed_image = processed_image.to(self.device)

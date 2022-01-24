@@ -26,34 +26,30 @@ consoleHandler = logging.StreamHandler()
 consoleHandler.setFormatter(logFormatter)
 logger.addHandler(consoleHandler) 
 
-logger.info("Loading Config File")
-config = configparser.RawConfigParser()
-config.read(os.path.join(os.getcwd(),"config/config.property"))
-
-DEFAULT_VALUES = dict(config.items("DEFAULT"))
-DEFAULT_MODEL = DEFAULT_VALUES["model"]
-DEFAULT_PRETRAINED_MODEL_PATH = os.path.join(os.getcwd(),DEFAULT_VALUES["pretrained_model_path"])
-DEFAULT_OUTPUT_DIRECTORY = os.path.join(os.getcwd(),DEFAULT_VALUES["output_directory"])
-DEFAULT_INPUT_SHAPE = int(DEFAULT_VALUES["input_shape"])
-
-LABELS = dict(config.items("LABELS"))
-CLASS_LABEL_LIST = LABELS["labels"].split(",")
-NUMBER_OF_LABELS = len(CLASS_LABEL_LIST)
-DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-
 def writePredictionOutput(predicted_output, output_file_directory):
-    output_file_path = os.path.join(output_file_directory,"prediction.csv")
-    prediction_df = pd.DataFrame(predicted_output)
-    prediction_df.to_csv(output_file_path, index = False)
+    """ 
+        Purpose: Save the output in the user decided folder
+        Input: List of dictionary with image name and prediction, directory where file should be saved
+        Output: Path of the output csv
+    """
+    try:
+        logger.info("Saving the results in the following directory " + output_file_directory)
+        output_file_path = os.path.join(output_file_directory,"prediction.csv")
+        prediction_df = pd.DataFrame(predicted_output)
+        prediction_df.to_csv(output_file_path, index = False)
+        logger.info("Output file save in the following path " + output_file_path)
+    except Exception as e:
+        logger.exception("Unable to save the results")
+        raise raiseException("Unable to save the results")
     return output_file_path
 
 def main():
-    try:
-        args = parseArguments(logger)
-    except:
-        logger.exception("Exception while loading user arguments")
-        raise raiseException("Exception while loading user arguments")
-
+    """ 
+        Purpose: Main function for execution
+        Input: None
+        Output: None
+    """
+    args = parseArguments(logger)
     temple_prediction_model = loadPredictionModel(args, logger)
     processed_image_tensor = processInputImage(args.input_path, args.image_shape, logger)
     predicted_output = getModelPrediction(temple_prediction_model, processed_image_tensor, logger)
