@@ -62,7 +62,7 @@ The following augmentation techniques were applied:
 * Redacting Random Parts of image 
 
 <p align="center">
-  <img src="data_aug.png">
+  <img src="imgs/data_aug.png">
 </p>
 
 Data Augmentation is applied such that each class is augmented till we reach to a max of 400 image per class or we have augmented each image with a factor of 10
@@ -125,22 +125,22 @@ The model is now finetuned on various CNN architectures trained on Imagenet data
 
 #### Efficientnet B3 Confusion Matrix
 <p align="center">
-  <img src="eff_b3_cf.png">
+  <img src="imgs/eff_b3_cf.png">
 </p>
 
 #### Efficientnet B0 Confusion Matrix
 <p align="center">
-  <img src="ef_b0_cnf.png">
+  <img src="imgs/ef_b0_cnf.png">
 </p>
 
 #### VGG16 Confusion Matrix
 <p align="center">
-  <img src="vgg_cf.png">
+  <img src="imgs/vgg_cf.png">
 </p>
 
 #### Classwise Accuracy of the three models
 <p align="center">
-  <img src="classwise_accuracy.png">
+  <img src="imgs/classwise_accuracy.png">
 </p>
 
 **Please Look at notebook modelTraining.iypnb in the folder notebooks for more analysis performed; The notebook explains the reason for bottom two underperforming class**
