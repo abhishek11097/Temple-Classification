@@ -160,6 +160,7 @@ Following are the notebooks present in the notebooks folder
 * **ImageClassification_Efficientnet_VGG.ipynb:** Contains the training code for VGG16
 * **modelTesting.ipynb:** Contains the result calculation and the analysis of the results on test dataset
 * **DataSplit-Augmentation.ipynb:** Contains the code to split the code in train and test; augmenment the train; split the augmented data in train and val
+* **DataVisualisation.ipynb:** Visualiztion of data distribution
 
 ## Dataset used
 |Category|Datalink|
