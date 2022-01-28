@@ -122,3 +122,8 @@ The model is now finetuned on various CNN architectures trained on Imagenet data
 |VGG16|79.84|[vggweights](https://drive.google.com/file/d/1I-PIIunZenf_jo-u3Nhwk6v24nk1ZX-A/view?usp=sharing)|
 
 ### Analysis of the Result
+
+#### Efficientnet B3 Confusion Matrix
+<p align="center">
+  <img src="imgs/eff_b3_cf.png">
+</p>
