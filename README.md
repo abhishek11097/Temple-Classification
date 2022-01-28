@@ -130,7 +130,7 @@ The model is now finetuned on various CNN architectures trained on Imagenet data
 
 #### Efficientnet B0 Confusion Matrix
 <p align="center">
-  <img src="eff_b0_cf.png">
+  <img src="ef_b0_cf.png">
 </p>
 
 #### VGG16 Confusion Matrix
