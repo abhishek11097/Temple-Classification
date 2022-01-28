@@ -142,3 +142,15 @@ The model is now finetuned on various CNN architectures trained on Imagenet data
 <p align="center">
   <img src="classwise_accuracy.png">
 </p>
+
+**Please Look at notebook modelTraining.iypnb in the folder notebooks for more analysis performed; The notebook explains the reason for bottom two underperforming class**
+> Armenia is not considered in tests due to only having 9 unaugmented images in train+val dataset
+
+#### Notebooks
+Following are the notebooks present in the notebooks folder
+
+* **ImageClassification_Efficientnet_B3.ipynb:** Contains the training code for Efficient Net B3
+* **ImageClassification_Efficientnet_B0.ipynb:** Contains the training code for Efficient Net B0
+* **ImageClassification_Efficientnet_VGG.ipynb:** Contains the training code for VGG16
+* **modelTesting.ipynb:** Contains the result calculation and the analysis of the results on test dataset
+* **DataSplit-Augmentation.ipynb:** Contains the code to split the code in train and test; augmenment the train; split the augmented data in train and val
