@@ -68,6 +68,12 @@ The following augmentation techniques were applied:
 Data Augmentation is applied such that each class is augmented till we reach to a max of 400 image per class or we have augmented each image with a factor of 10
 
 ### Distribution of Each Class **Before** Augmentation
+
+
+<p align="center">
+  <img src="imgs/plot.png">
+</p>
+
 Class|Count
 -----|-----
 Australia|28
