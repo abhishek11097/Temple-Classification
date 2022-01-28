@@ -125,5 +125,5 @@ The model is now finetuned on various CNN architectures trained on Imagenet data
 
 #### Efficientnet B3 Confusion Matrix
 <p align="center">
-  <img src="imgs/eff_b3_cf.png">
+  <img src="eff_b3_cf.png">
 </p>
