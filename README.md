@@ -1,4 +1,4 @@
-# Temple Classification
+# Toptal Screening Assisnment
 The repository contains the prediction code for a classifier that could guess which country the temple is in. The code gets the path to a directory with images as a parameter, and returns a CSV file with the results.
 The solution has option of three pretrained models: Efficient Net B3, Efficient B0, VGG16. Efficient Net B3 is the default model since it gives the highest accuracy.
 
@@ -42,7 +42,16 @@ The solution has option of three pretrained models: Efficient Net B3, Efficient 
 `bash predict.sh --help`
 
 ### Training Process of prediction model
-The images were divided in training and test dataset on a 80:20 split. Data augmentation was performed on training data.
+The images were divided in training and test dataset on a 80:20 split.
+
+After Training-Testing split, the distribution is as follows
+
+Category|#Images
+-----|-----
+Train|576
+Test|138
+
+Data augmentation was performed on training data.
 
 The following augmentation techniques were applied:
 * Random 90 Degree Rotation
@@ -56,9 +65,60 @@ The following augmentation techniques were applied:
   <img src="data_aug.png">
 </p>
 
+Data Augmentation is applied such that each class is augmented till we reach to a max of 400 image per class or we have augmented each image with a factor of 10
+
+### Distribution of Each Class **Before** Augmentation
+Class|Count
+-----|-----
+Australia|28
+Indonesia-Bali|36
+Germany|86
+Armenia|9
+Portugal+Brazil|44
+Japan|50
+Thailand|84
+Spain|55
+Malaysia+Indonesia|44
+Hungary+Slovakia+Croatia|40
+Russia|100
+**Total**|576
+
+### Distribution of Each Class **After** Augmentation
+
+Class|CountOfImagesAfterAugmentation|Number of augmented images
+-----|-----|-----
+Australia|0|0
+Indonesia-Bali|0|0
+Germany|0|0
+Armenia|0|0
+Portugal+Brazil|0|0
+Japan|0|0
+Thailand|0|0
+Spain|0|0
+Malaysia+Indonesia|0|0
+Hungary+Slovakia+Croatia|0|0
+Russia|0|0
+**Total**|0|0
+
+> Each class of augmented train image is now randomly split into train and val dataset in 80:20
+
+### Final Distribution of Data
+Category|#Images
+-----|-----
+train|0
+val|0
+test|0
+
+### Training the model
+The model is now finetuned on various CNN architectures trained on Imagenet data, Following changes are made to each of the net
+* The size of the final layer is changed to suit the dataset making the size to x,11, *x is the size of the output of the previous layer*
+* The weights of all but last CNN layer is freezed during the training process 
+
 ### Results of Test Set
 |Model|Accuracy|Weights|
 |----|----|----|
 |EfficientNet B3|84.61|[effb3weights](https://drive.google.com/file/d/12rduB0SrQSS3QgVoPfuKmhANwjXsxNF1/view?usp=sharing)|
 |EfficientNet B0|81.24|[effb0weights](https://drive.google.com/file/d/1KaN8nNyp5RJiy2LDZIoP0Q_sgMjSPODC/view?usp=sharing)|
 |VGG16|79.84|[vggweights](https://drive.google.com/file/d/1I-PIIunZenf_jo-u3Nhwk6v24nk1ZX-A/view?usp=sharing)|
+
+### Analysis of the Result
