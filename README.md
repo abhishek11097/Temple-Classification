@@ -118,8 +118,8 @@ The model is now finetuned on various CNN architectures trained on Imagenet data
 |Model|Accuracy|Weights|
 |----|----|----|
 |EfficientNet B3|84.061|[effb3weights](https://drive.google.com/file/d/12rduB0SrQSS3QgVoPfuKmhANwjXsxNF1/view?usp=sharing)|
-|EfficientNet B0|81.24|[effb0weights](https://drive.google.com/file/d/1KaN8nNyp5RJiy2LDZIoP0Q_sgMjSPODC/view?usp=sharing)|
-|VGG16|79.84|[vggweights](https://drive.google.com/file/d/1I-PIIunZenf_jo-u3Nhwk6v24nk1ZX-A/view?usp=sharing)|
+|EfficientNet B0|81.88|[effb0weights](https://drive.google.com/file/d/1KaN8nNyp5RJiy2LDZIoP0Q_sgMjSPODC/view?usp=sharing)|
+|VGG16|81.15|[vggweights](https://drive.google.com/file/d/1I-PIIunZenf_jo-u3Nhwk6v24nk1ZX-A/view?usp=sharing)|
 
 ### Analysis of the Result
 
@@ -130,7 +130,7 @@ The model is now finetuned on various CNN architectures trained on Imagenet data
 
 #### Efficientnet B0 Confusion Matrix
 <p align="center">
-  <img src="ef_b0_cf.png">
+  <img src="ef_b0_cnf.png">
 </p>
 
 #### VGG16 Confusion Matrix
