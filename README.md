@@ -85,29 +85,29 @@ Russia|100
 
 ### Distribution of Each Class **After** Augmentation
 
-Class|CountOfImagesAfterAugmentation|Number of augmented images
------|-----|-----
-Australia|0|0
-Indonesia-Bali|0|0
-Germany|0|0
-Armenia|0|0
-Portugal+Brazil|0|0
-Japan|0|0
-Thailand|0|0
-Spain|0|0
-Malaysia+Indonesia|0|0
-Hungary+Slovakia+Croatia|0|0
-Russia|0|0
-**Total**|0|0
+Class|CountOfImagesAfterAugmentation
+-----|-----
+Australia|280
+Indonesia-Bali|360
+Germany|400
+Armenia|90
+Portugal+Brazil|400
+Japan|400
+Thailand|400
+Spain|400
+Malaysia+Indonesia|400
+Hungary+Slovakia+Croatia|400
+Russia|400
+**Total**|3930
 
 > Each class of augmented train image is now randomly split into train and val dataset in 80:20
 
 ### Final Distribution of Data
 Category|#Images
 -----|-----
-train|0
-val|0
-test|0
+train|3144
+val|786
+test|138
 
 ### Training the model
 The model is now finetuned on various CNN architectures trained on Imagenet data, Following changes are made to each of the net
@@ -117,7 +117,7 @@ The model is now finetuned on various CNN architectures trained on Imagenet data
 ### Results of Test Set
 |Model|Accuracy|Weights|
 |----|----|----|
-|EfficientNet B3|84.61|[effb3weights](https://drive.google.com/file/d/12rduB0SrQSS3QgVoPfuKmhANwjXsxNF1/view?usp=sharing)|
+|EfficientNet B3|84.061|[effb3weights](https://drive.google.com/file/d/12rduB0SrQSS3QgVoPfuKmhANwjXsxNF1/view?usp=sharing)|
 |EfficientNet B0|81.24|[effb0weights](https://drive.google.com/file/d/1KaN8nNyp5RJiy2LDZIoP0Q_sgMjSPODC/view?usp=sharing)|
 |VGG16|79.84|[vggweights](https://drive.google.com/file/d/1I-PIIunZenf_jo-u3Nhwk6v24nk1ZX-A/view?usp=sharing)|
 
@@ -127,3 +127,9 @@ The model is now finetuned on various CNN architectures trained on Imagenet data
 <p align="center">
   <img src="eff_b3_cf.png">
 </p>
+
+#### Efficientnet B9 Confusion Matrix
+
+#### VGG16 Confusion Matrix
+
+#### Distributionwise Accuracy
