@@ -158,6 +158,6 @@ Following are the notebooks present in the notebooks folder
 ## Dataset used
 |Category|Datalink|
 |----|----|
-|train|[train]()|
-|val|[val]()|
-|test|[train]()|
+|train|[train](https://drive.google.com/file/d/1ZVyFqq8jL6XJaAaFPMHkVeR-SkIziZh5/view?usp=sharing)|
+|val|[val](https://drive.google.com/file/d/1K8QAhCwTg8nqa6qkhjQalR9ZCtuR5GDQ/view?usp=sharing)|
+|test|[test](https://drive.google.com/file/d/1zhR7GfzdacRFmNuaIOknWFfjshJ4lVZa/view?usp=sharing)|
